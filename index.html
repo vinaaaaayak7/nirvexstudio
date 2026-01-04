@@ -1,0 +1,1403 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NirvexStudios - Creative Development</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <style>
+    /* Navbar button sizes - uniform across all pages */
+    @media (min-width: 769px) {
+        .nav-menu .nav-link {
+            padding: 0.4rem 0.8rem !important;
+            font-size: 0.9rem !important;
+        }
+        
+        /* Admin button style */
+        .nav-link.btn-admin {
+            background: linear-gradient(135deg, #f16a48 0%, #7C3AED 100%) !important;
+            color: #FFFFFF !important;
+            border: 1px solid rgba(139, 92, 246, 0.3) !important;
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.25) !important;
+        }
+        
+        .nav-link.btn-admin:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35) !important;
+        }
+    }
+    
+    /* MOBILE OPTIMIZATION - Compact but beautiful */
+    @media screen and (max-width: 768px) {
+        /* Navbar - clean and compact */
+        .navbar {
+            padding: 0 !important;
+            height: 56px !important;
+            max-height: 56px !important;
+        }
+        
+        .navbar .container {
+            padding: 0 15px !important;
+            height: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+        }
+        
+        .nav-brand {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+        
+        .nav-brand .nav-logo {
+            width: 32px !important;
+            height: 32px !important;
+        }
+        
+        .nav-title {
+            font-size: 1rem !important;
+            display: block !important;
+        }
+        
+        .nav-toggle {
+            width: 40px !important;
+            height: 40px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        /* Hero section - compact but elegant */
+        .hero {
+            padding-top: 56px !important;
+            min-height: auto !important;
+            padding-bottom: 2rem !important;
+        }
+        
+        .hero-content {
+            padding: 2rem 15px !important;
+            gap: 2rem !important;
+            min-height: auto !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+        }
+        
+        .hero-text {
+            order: 2 !important;
+            width: 100% !important;
+        }
+        
+        .hero-title {
+            font-size: 2rem !important;
+            line-height: 1.2 !important;
+            margin-bottom: 0.5rem !important;
+            font-weight: 800 !important;
+            background: linear-gradient(135deg, #FFFFFF 0%, #eb6b6b 50%, #fa6060 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem !important;
+            margin-bottom: 0.5rem !important;
+            color: #93C5FD !important;
+            font-weight: 600 !important;
+        }
+        
+        .hero-description {
+            font-size: 0.95rem !important;
+            margin-bottom: 1.5rem !important;
+            line-height: 1.5 !important;
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+        
+        .hero-mascot {
+            order: 1 !important;
+            margin-bottom: 0 !important;
+            display: flex !important;
+            justify-content: center !important;
+        }
+        
+        .penguin-container {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+        
+        .penguin-mascot {
+            max-width: 120px !important;
+            width: 120px !important;
+            height: auto !important;
+            filter: drop-shadow(0 10px 20px rgba(236, 106, 66, 0.3)) !important;
+        }
+        
+        .penguin-container::before {
+            display: none !important;
+        }
+        
+        .hero-buttons {
+            gap: 0.75rem !important;
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            align-items: center !important;
+        }
+        
+        .hero-buttons .btn {
+            padding: 12px 24px !important;
+            font-size: 0.9rem !important;
+            width: 100% !important;
+            max-width: 280px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            border-radius: 12px !important;
+            font-weight: 600 !important;
+        }
+        
+        .hero-buttons .btn i {
+            display: inline-block !important;
+            font-size: 1rem !important;
+        }
+        
+        /* Mobile menu - properly styled */
+        .nav-menu {
+            top: 56px !important;
+        }
+    }
+    
+    @media screen and (max-width: 480px) {
+        .navbar {
+            height: 52px !important;
+            max-height: 52px !important;
+        }
+        
+        .nav-brand .nav-logo {
+            width: 28px !important;
+            height: 28px !important;
+        }
+        
+        .nav-title {
+            font-size: 0.95rem !important;
+        }
+        
+        .hero {
+            padding-top: 52px !important;
+        }
+        
+        .hero-content {
+            padding: 1.5rem 12px !important;
+        }
+        
+        .hero-title {
+            font-size: 1.75rem !important;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem !important;
+        }
+        
+        .hero-description {
+            font-size: 0.9rem !important;
+        }
+        
+        .penguin-mascot {
+            max-width: 100px !important;
+            width: 100px !important;
+        }
+        
+        .hero-buttons .btn {
+            padding: 10px 20px !important;
+            font-size: 0.85rem !important;
+            max-width: 260px !important;
+        }
+        
+        .nav-menu {
+            top: 52px !important;
+        }
+    }
+    
+    @media screen and (max-width: 360px) {
+        .nav-title {
+            display: none !important;
+        }
+        
+        .hero-title {
+            font-size: 1.5rem !important;
+        }
+        
+        .hero-subtitle {
+            font-size: 1rem !important;
+        }
+        
+        .penguin-mascot {
+            max-width: 80px !important;
+            width: 80px !important;
+        }
+    }
+    
+    /* Fix: center 'Learn More' buttons */
+    .service-card .btn-outline {
+        display: inline-flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 0 auto !important;
+        width: auto !important;
+    }
+    
+    /* Particle animation fix */
+    .ice-particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+    }
+    
+    .particle {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        pointer-events: none;
+        opacity: 0;
+        animation: particleFloat 15s infinite linear;
+    }
+    
+    @keyframes particleFloat {
+        0% {
+            transform: translateY(100vh) rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100vh) rotate(720deg);
+            opacity: 0;
+        }
+    }
+
+    /* Reviews carousel styles */
+    .reviews-carousel-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    /* Smooth transition for reviews grid */
+    #reviewsList {
+        transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    #reviewsList.transitioning {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    
+    #reviewsList.transitioning-next {
+        transform: translateX(20px);
+    }
+    
+    /* Individual review card animation */
+    .review-message {
+        animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        opacity: 0;
+    }
+    
+    .review-message:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+    
+    .review-message:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    
+    .review-message:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(96, 165, 250, 0.1);
+        border: 2px solid rgba(96, 165, 250, 0.3);
+        color: #93C5FD;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+    }
+    
+    .carousel-btn:hover {
+        background: rgba(96, 165, 250, 0.2);
+        border-color: #60A5FA;
+        color: #FFFFFF;
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 8px 25px rgba(96, 165, 250, 0.4);
+    }
+    
+    .carousel-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+    
+    .carousel-btn:disabled:hover {
+        transform: translateY(-50%);
+        background: rgba(96, 165, 250, 0.1);
+        box-shadow: none;
+    }
+    
+    .carousel-prev {
+        left: -60px;
+    }
+    
+    .carousel-next {
+        right: -60px;
+    }
+    
+    .reviews-pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-top: 2rem;
+    }
+    
+    .review-page-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(96, 165, 250, 0.3);
+        border: 1px solid rgba(96, 165, 250, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .review-page-dot:hover {
+        transform: scale(1.2);
+        background: rgba(96, 165, 250, 0.5);
+    }
+    
+    .review-page-dot.active {
+        background: #60A5FA;
+        border-color: #60A5FA;
+        box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.2);
+    }
+    
+    @media (max-width: 1200px) {
+        .carousel-prev {
+            left: -40px;
+        }
+        .carousel-next {
+            right: -40px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .carousel-btn {
+            position: static;
+            transform: none;
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+        
+        .carousel-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .reviews-carousel-container {
+            flex-direction: row;
+            justify-content: center;
+        }
+        
+        #reviewsList {
+            order: 2;
+            flex: 1;
+        }
+        
+        .carousel-prev {
+            order: 1;
+        }
+        
+        .carousel-next {
+            order: 3;
+        }
+    }
+    
+    /* Reviews overlay (full screen) */
+    .review-message { cursor: pointer; }
+    body.noscroll { overflow: hidden; }
+    .review-overlay {
+      position: fixed; inset: 0;
+      background: rgba(2,6,23,0.88);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      display: none; z-index: 10000;
+    }
+    .review-overlay.open { display: block; }
+    .review-overlay .overlay-inner {
+      position: absolute; inset: 0; display: grid; grid-template-rows: 1fr; padding: 16px;
+    }
+    .review-overlay .overlay-card {
+      margin: 0 auto; width: min(960px, 100%); height: 100%;
+      background: linear-gradient(135deg, rgba(30,41,59,0.95) 0%, rgba(15,23,42,0.95) 100%);
+      border: 1px solid rgba(148,163,184,0.2);
+      border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      display: grid; grid-template-rows: auto auto 1fr; overflow: hidden; position: relative;
+    }
+    .overlay-close {
+      position: absolute; top: 12px; right: 12px;
+      width: 38px; height: 38px; border-radius: 10px;
+      border: 1px solid rgba(148,163,184,0.2);
+      background: rgba(255,255,255,0.04); color: #E5E7EB;
+      font-size: 22px; line-height: 1; cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .overlay-close:hover { background: rgba(255,255,255,0.08); transform: scale(1.05); }
+    .overlay-header { display: flex; align-items: center; gap: 12px; padding: 16px 16px 0 16px; }
+    .overlay-avatar {
+      width: 54px; height: 54px; border-radius: 50%; object-fit: cover;
+      border: 2px solid transparent; background: linear-gradient(135deg, #3B82F6, #8B5CF6); padding: 2px;
+    }
+    .overlay-meta { display: flex; flex-direction: column; }
+    .overlay-author { font-weight: 800; font-size: 1.05rem; color: #E5E7EB; }
+    .overlay-timestamp { font-size: 0.8rem; color: #94A3B8; }
+    .overlay-rating { padding: 12px 16px; margin-top: 8px; border-top: 1px solid rgba(148,163,184,0.12); }
+    .overlay-body { padding: 16px; overflow-y: auto; }
+    .overlay-text { color: #CBD5E1; font-size: 1rem; line-height: 1.8; white-space: pre-wrap; }
+    @media (max-width: 640px) {
+      .review-overlay .overlay-inner { padding: 8px; }
+      .review-overlay .overlay-card { border-radius: 12px; }
+      .overlay-header { padding: 12px 12px 0 12px; }
+      .overlay-rating { padding: 10px 12px; }
+      .overlay-body { padding: 12px; }
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/nirvexlogo.png" alt="nirvexstudio.png" class="nav-logo">
+                <span class="nav-title">NirvexStudio</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="/shop" class="nav-link">Shop</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#reviews" class="nav-link">Reviews</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="/wiki" class="nav-link">Wiki</a>
+                                <a href="#support" class="nav-link">Support</a>
+                <a href="https://nirvexstudio.in/admin" id="btnAdmin" class="nav-link btn-admin" style="display: none;">Admin</a>
+                <a href="https://nirvexstudio.in/auth/discord/login" id="btnAuth" class="nav-link btn-login">Login</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="ice-particles" id="particlesContainer"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title animate-fade-in">NirvexStudio</h1>
+                <h2 class="hero-subtitle animate-fade-in-delay">Creative Development</h2>
+                <p class="hero-description animate-fade-in-delay-2">
+                    Driven by passion and powered by expertise — we don’t just create servers, we create worlds.
+                </p>
+                <div class="hero-buttons animate-fade-in-delay-3">
+                    <a href="/shop" class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i> Visit Shop
+                    </a>
+                    <a href="https://discord.nirvexstudio.in" class="btn btn-secondary">
+                        <i class="fab fa-discord"></i> Join our Discord
+                    </a>
+                </div>
+            </div>
+            <div class="hero-mascot">
+                <div class="penguin-container">
+                    <img src="images/nirvexlogo.png" alt="nirvexlogo.png" class="penguin-mascot animate-float">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Professional solutions for your digital needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="service-title">Minecraft Plugins</h3>
+                    <p class="service-description">
+                        Custom plugins for your Minecraft server. From simple utilities to complex game mechanics.
+                    </p>
+                    <a href="https://discord.nirvexstudio.in" class="btn btn-outline">Learn More</a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3 class="service-title">Discord Bots</h3>
+                    <p class="service-description">
+                        Powerful Discord bots with moderation, entertainment, and utility features for your community.
+                    </p>
+                    <a href="https://discord.nirvexstudio.in" class="btn btn-outline">Learn More</a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="service-title">Websites</h3>
+                    <p class="service-description">
+                        Modern, responsive websites tailored to your needs. From portfolios to e-commerce solutions.
+                    </p>
+                    <a href="https://discord.nirvexstudio.in" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Portfolio</h2>
+                <p class="section-subtitle">Check out our latest projects</p>
+            </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="minecraft">Minecraft Plugins</button>
+                <button class="filter-btn" data-filter="discord">Discord Bots</button>
+                <button class="filter-btn" data-filter="websites">Websites</button>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Minecraft Plugins -->
+                <div class="portfolio-item" data-category="minecraft">
+                <div class="portfolio-image">
+                    <!-- Usa il tuo banner 2:1 (1024x512) -->
+                    <img src="images/weariableeffects.png" alt="weariableeffects">
+                    <div class="portfolio-overlay">
+                    <div class="portfolio-links">
+                        <!-- Quando sarà online, metti l’URL BBB reale -->
+                        <a href="https://builtbybit.com/" class="portfolio-link" title="View on BuiltByBit">
+                        <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h4>Weariable Effects</h4>
+                    <p>Adds customizable wearable effects to enhance player appearance and gameplay experience.</p>
+                </div>
+                </div>
+                <div class="portfolio-item" data-category="minecraft">
+                <div class="portfolio-image">
+                    <!-- Usa il tuo banner 2:1 (1024x512) -->
+                    <img src="images/nxvaults.png" alt="NxVaults">
+                    <div class="portfolio-overlay">
+                    <div class="portfolio-links">
+                                <a href="https://discord.gg" class="portfolio-link" title="View on the server"><i class="fab fa-discord"></i></a>
+                    </div>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h4>NxVaults</h4>
+                    <p>Player Vaults with built-in Money & XP banks. Paper 1.20/1.21+, Java 17.</p>
+                </div>
+                </div>
+
+                
+
+                <!-- Discord Bots -->
+                <div class="portfolio-item" data-category="discord">
+                    <div class="portfolio-image">
+                        <img src="images/nirvexbot.png" alt="NirvexStudio Bot">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-links">
+                                <a href="https://discord.NirvexStudio" class="portfolio-link" title="Join NirvexStudio Discord"><i class="fab fa-discord"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>Nirvex Studio Bot</h4>
+                        <p>The All In One MOD of NirvexStudio: moderation, handy utilities, and seamless server integrations.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="discord">
+                    <div class="portfolio-image">
+                        <img src="images/nirvexbot.png" alt="NirvexStudio Bot">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-links">
+                                <a href="https://discord.NirvexStudio" class="portfolio-link" title="Join NirvexStudio Discord"><i class="fab fa-discord"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>CYCLONE MC Bot</h4>
+                        <p>The All In One MOD of CYCLONE MC: moderation, handy utilities, and seamless server integrations.</p>
+                    </div>
+                </div>
+
+            
+
+                <!-- Websites -->
+                <div class="portfolio-item" data-category="websites">
+                    <div class="portfolio-image">
+                        <img src="images/" alt="CycloneMC Website">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-links">
+                                <a href="https://cyclonemc.online/" class="portfolio-link" title="Visit Cyclone MC"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>Cyclone Mc</h4>
+                        <p>Home of the Cyclone MC network — news, info, and more.</p>
+                    </div>
+                </div>
+               
+
+            <div id="portfolioPagination" class="portfolio-pagination" aria-label="Portfolio pages"></div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Clients Say</h2>
+                <p class="section-subtitle">Latest reviews from our Discord</p>
+            </div>
+            <div class="reviews-carousel-container">
+                <button class="carousel-btn carousel-prev" id="reviewsPrev" aria-label="Previous reviews">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div id="reviewsList" class="reviews-grid">
+                    <div class="reviews-empty">Loading reviews...</div>
+                </div>
+                <button class="carousel-btn carousel-next" id="reviewsNext" aria-label="Next reviews">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="reviews-pagination" id="reviewsPagination"></div>
+        </div>
+    </section>
+
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">About Us</h2>
+            <p class="section-subtitle">Meet the team behind NirvexStudio</p>
+        </div>
+
+        <div class="team-grid">
+
+            <!-- Card 1 -->
+            <div class="team-card animate-on-scroll">
+                <div class="team-avatar">
+                    <img src="https://avatars.githubusercontent.com/vinaaaaayak7" alt="Vinayak">
+                    <div class="avatar-glow"></div>
+                </div>
+                <h3 class="team-name">Vinayak</h3>
+                <p class="team-role">Lead Full Stack Developer</p>
+                <p class="team-bio">
+                    Freelance developer specialized in Minecraft servers with custom plugins.
+                    Experienced in Web Development, Discord Bots, and SCP:SL Plugins.
+                </p>
+                <div class="team-social">
+                    <a href="https://github.com/vinaaaaayak7" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://discord.nirvexstudio.in" class="social-link"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="team-card animate-on-scroll">
+                <div class="team-avatar">
+                    <img src="https://avatars.githubusercontent.com/vinaaaaayak7" alt="Avanitas">
+                    <div class="avatar-glow"></div>
+                </div>
+                <h3 class="team-name">Avanitas</h3>
+                <p class="team-role">Full Stack Developer</p>
+                <p class="team-bio">
+                    Specialized in Discord bots, Minecraft plugins, and custom software
+                    solutions with a focus on clean and efficient code.
+                </p>
+                <div class="team-social">
+                    <a href="https://github.com/Avanitas" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://discord.nirvexstudio.in" class="social-link"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Answers to common questions about our services</p>
+            </div>
+            <div class="faq-accordion">
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What services do you offer?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer" hidden="">
+                        <p>We build custom Minecraft plugins, Discord bots, and modern responsive websites. Our services also include plugin configurations, 
+                           server machine and DNS setup, as well as maintenance, optimization, and consulting. 
+                           We provide both free and premium Minecraft plugins already available for download and use.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How can I request a custom project?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer" hidden="">
+                        <p>Join our Discord and open a ticket in the support channel. Provide your project details and we’ll get back with an estimate and timeline.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What is the typical turnaround time?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer" hidden="">
+                        <p>Small features are typically delivered in a few days. Full projects vary depending on scope, usually 1–4 weeks. We also offer expedited delivery.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do you provide ongoing support?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer" hidden="">
+                        <p>Yes. We offer support and maintenance packages, including bug fixes, updates, and new features upon request.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Which payment methods do you accept?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer" hidden="">
+                        <p>We accept major payment platforms commonly used in the dev community, including PayPal and bank transfers.
+                           For additional options, feel free to contact us via Discord.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What is your payment policy for custom projects?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer" hidden="">
+                        <p>For custom services, we require a 50% upfront payment before starting the work, and the remaining 50% after the final review but <strong>before</strong> delivering the final product.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="support">
+        <div class="container">
+            <div class="support-banner">
+                <div class="support-content">
+                    <h2 class="support-title">Need support or want a custom service?</h2>
+                    <p class="support-text">
+                        Join our Discord community for instant support through personal tickets and advice from other clients, 
+                        as well as updates and exclusive content!
+                    </p>
+                    <a href="https://discord.gg/3pXwkknKtF" class="btn btn-large">
+                        <i class="fab fa-discord"></i> Join our Discord
+                    </a>
+                    <a href="/cdn-cgi/l/email-" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="">support.nirvexstudio</span>
+                    </a>
+                </div>
+                <div class="support-illustration">
+                    <img src="images/nirvexlogofooter.png" alt="Support" class="animate-float">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/nirvexlogo.png" alt="nirvexstudio" class="footer-logo">
+                    <p class="footer-description">
+                        your one-stop solution for Minecraft server development and game setup innovation.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="/shop">Shop</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="wiki.html">Wiki</a></li>
+                                                <li><a href="#support">Support</a></li>
+                        <li><a href="https://nirvexstudio.in/terms">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-platforms">
+                    <h4>Platforms</h4>
+                    <div class="platform-icons">
+                        <a href="https://www.spigotmc.org/members/nirvexstudio.in.2362900/" class="platform-link" title="Spigot" target="_blank" rel="noopener noreferrer">Spigot</a>
+                        <a href="https://builtbybit.com/creators/penguin-studios.346458" class="platform-link" title="BuiltByBit" target="_blank" rel="noopener noreferrer">BuiltByBit</a>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="https://discord.nirvexstudio.in" class="social-icon" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="/cdn-cgi/l/email-protection#8cfff9fcfce3fef8ccfce9e2ebf9e5e2fff8f9e8e5e3ffa2e9f9" class="social-icon" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://github.com/nirvexstudio.in" class="social-icon" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>� 2025 NirvexStudio All rights reserved. | <a href="terms.html" style="color: #60A5FA; text-decoration: none;">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="reviewOverlay" class="review-overlay" aria-hidden="true">
+      <div class="overlay-inner">
+        <div class="overlay-card">
+          <button class="overlay-close" type="button" aria-label="Close">�</button>
+          <div class="overlay-header">
+            <img class="overlay-avatar" src="images/logosfondotrasparente.png" alt="">
+            <div class="overlay-meta">
+              <div class="overlay-author">User</div>
+              <div class="overlay-timestamp"></div>
+            </div>
+          </div>
+          <div class="overlay-rating"></div>
+          <div class="overlay-body">
+            <div class="overlay-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script data-cfasync="false" src="js/email-decode.min.js"></script><script src="js/main.js"></script>
+    <script src="js/anti-devtools.js"></script>
+    <script>
+    // CRITICAL: Force close mobile menu immediately after main.js loads
+    (function() {
+        var navMenu = document.getElementById('navMenu');
+        var navToggle = document.getElementById('navToggle');
+        
+        if (navMenu && navToggle) {
+            // Remove any active state
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+            
+            // Force closed state with inline styles on mobile
+            if (window.innerWidth <= 768) {
+                navMenu.style.left = '-100%';
+                navMenu.style.opacity = '0';
+                navMenu.style.pointerEvents = 'none';
+                navMenu.style.display = 'none';
+                navMenu.style.position = 'fixed';
+                
+                // Double-check after a short delay
+                setTimeout(function() {
+                    navMenu.classList.remove('active');
+                    navMenu.style.left = '-100%';
+                    navMenu.style.opacity = '0';
+                    navMenu.style.pointerEvents = 'none';
+                    navMenu.style.display = 'none';
+                }, 100);
+            }
+        }
+    })();
+    </script>
+    <script>
+    // Generate animated particles for hero background
+    function createParticles() {
+        const container = document.getElementById('particlesContainer');
+        if (!container) return;
+        
+        // Clear existing particles
+        container.innerHTML = '';
+        
+        // Create 20-30 particles for better effect
+        const particleCount = Math.floor(Math.random() * 11) + 20;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Random size between 2-6px
+            const size = Math.random() * 4 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            
+            // Random horizontal position
+            particle.style.left = Math.random() * 100 + '%';
+            
+            // Start from bottom
+            particle.style.bottom = '-10px';
+            
+            // Random animation duration between 10-20s
+            const duration = Math.random() * 10 + 10;
+            particle.style.animationDuration = duration + 's';
+            
+            // Random animation delay to stagger the particles
+            const delay = Math.random() * 10;
+            particle.style.animationDelay = delay + 's';
+            
+            // Add some blur for smaller particles
+            if (size < 3) {
+                particle.style.filter = 'blur(1px)';
+            }
+            
+            container.appendChild(particle);
+        }
+    }
+    
+    // Initialize particles immediately
+    window.addEventListener('load', function() {
+        createParticles();
+        
+        // Recreate particles periodically for continuous effect
+        setInterval(createParticles, 30000);
+    });
+    
+    document.addEventListener('DOMContentLoaded', async function () {
+        // Force close mobile menu on page load - more aggressive approach
+        setTimeout(function() {
+            var navMenu = document.getElementById('navMenu');
+            var navToggle = document.getElementById('navToggle');
+            
+            if (navMenu && navToggle) {
+                // Remove active class
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                
+                // Force inline styles to ensure it's closed
+                if (window.innerWidth <= 768) {
+                    navMenu.style.left = '-100%';
+                    navMenu.style.display = 'flex';
+                    navMenu.style.opacity = '1';
+                    navMenu.style.pointerEvents = 'auto';
+                }
+                
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        }, 10);
+        var btn = document.getElementById('btnAuth');
+        var btnAdmin = document.getElementById('btnAdmin');
+        var admins = new Set(['713638252573098026']);
+
+        if (!btn) return;
+
+        try {
+            var res = await fetch('https://nirvexstudio.in/api/me', { credentials: 'include' });
+            if (res.ok) {
+                // Set dashboard button for authenticated users
+                btn.textContent = 'Dashboard';
+                btn.href = 'https://nirvexstudio.in/dashboard';
+
+                // Try to detect user ID across possible payload shapes
+                var data = null;
+                try {
+                    data = await res.json();
+                } catch (e) {
+                    data = null;
+                }
+
+                var userId = '';
+                if (data) {
+                    var u = data.user || data;
+                    userId = String(
+                        (u.discord_id ||
+                         (u.user && u.user.discord_id) ||
+                         u.id ||
+                         (u.user && u.user.id) ||
+                         (u.discord && u.discord.id) ||
+                         (u.profile && u.profile.id) || '')
+                    );
+                }
+
+                if (btnAdmin && userId && admins.has(userId)) {
+                    btnAdmin.style.display = 'inline-block';
+                }
+            } else {
+                btn.textContent = 'Login';
+                btn.href = 'https://nirvexstudio.in/auth/discord/login';
+                if (btnAdmin) btnAdmin.style.display = 'none';
+            }
+        } catch (e) {
+            btn.textContent = 'Login';
+            btn.href = 'https://nirvexstudio.in/auth/discord/login';
+            if (btnAdmin) btnAdmin.style.display = 'none';
+        }
+
+        // Reviews: fetch and render with pagination
+        let allReviews = [];
+        let currentReviewPage = 0;
+        let reviewsPerPage = 3; // Default for desktop
+        
+        function updateReviewsPerPage() {
+            const width = window.innerWidth;
+            if (width <= 640) {
+                reviewsPerPage = 1;
+            } else if (width <= 1024) {
+                reviewsPerPage = 2;
+            } else {
+                reviewsPerPage = 3;
+            }
+        }
+        
+        async function fetchReviews() {
+            try {
+                // Fetch more reviews (up to 50)
+                const res = await fetch('/api/reviews?limit=50&minStars=5', { credentials: 'omit' });
+                const data = await res.json().catch(() => ({}));
+                allReviews = (data && Array.isArray(data.reviews)) ? data.reviews : [];
+                
+                updateReviewsPerPage();
+                currentReviewPage = 0;
+                renderReviewsPage();
+                setupReviewsPagination();
+            } catch (e) {
+                allReviews = [];
+                renderReviewsPage();
+            }
+        }
+
+        function renderStars(n) {
+            const s = Math.max(1, Math.min(5, parseInt(n || 0, 10)));
+            return '<div class="review-stars">' +
+                Array.from({ length: 5 }, (_, i) => i < s
+                    ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>').join('') +
+                '</div>';
+        }
+
+        function escapeHtml(str) {
+            return String(str || '').replace(/&/g, '&')
+              .replace(/</g, '<').replace(/>/g, '>')
+        }
+
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            const date = new Date(dateStr);
+            const now = new Date();
+            const diff = now - date;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            
+            if (days === 0) {
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                if (hours === 0) {
+                    const mins = Math.floor(diff / (1000 * 60));
+                    return mins <= 1 ? 'Just now' : `${mins} minutes ago`;
+                }
+                return hours === 1 ? '1 hour ago' : `${hours} hours ago`;
+            } else if (days === 1) {
+                return 'Yesterday';
+            } else if (days < 7) {
+                return `${days} days ago`;
+            } else if (days < 30) {
+                const weeks = Math.floor(days / 7);
+                return weeks === 1 ? '1 week ago' : `${weeks} weeks ago`;
+            } else {
+                return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            }
+        }
+
+        function renderReviewsPage(direction = 'none') {
+            const wrap = document.getElementById('reviewsList');
+            if (!wrap) return;
+            
+            if (!allReviews.length) {
+                wrap.innerHTML = '<div class="reviews-empty">No reviews yet. Be the first to leave a review on our Discord!</div>';
+                updateNavigationButtons();
+                return;
+            }
+            
+            // Add transition class based on direction
+            if (direction !== 'none') {
+                wrap.classList.add('transitioning');
+                if (direction === 'next') {
+                    wrap.classList.add('transitioning-next');
+                }
+            }
+            
+            // Wait for fade out animation
+            setTimeout(() => {
+                const startIdx = currentReviewPage * reviewsPerPage;
+                const endIdx = startIdx + reviewsPerPage;
+                const pageReviews = allReviews.slice(startIdx, endIdx);
+                
+                wrap.innerHTML = pageReviews.map(r => {
+                    const avatar = (r.user_avatar && r.user_avatar.startsWith('http')) ? r.user_avatar : 'Assets/logosfondotrasparente.png';
+                    const name = escapeHtml(r.user_name || 'Anonymous');
+                    const cat = escapeHtml(r.category || '');
+                    const when = formatDate(r.created_at);
+                    const title = escapeHtml(r.title || '');
+                    const text = escapeHtml(r.text || '');
+                    
+                    // Extract Discord username (remove discriminator if present)
+                    const discordName = name.includes('#') ? name.split('#')[0] : name;
+                    
+                    return `
+                      <article class="review-message">
+                        <div class="message-header">
+                          <img class="message-avatar" src="${avatar}" alt="${name}" onerror="this.src='Assets/logosfondotrasparente.png'" />
+                          <span class="message-author">${discordName}</span>
+                          <span class="message-timestamp">${when}</span>
+                        </div>
+                        <div class="message-content">
+                          <div class="message-body">
+                            <div class="review-rating">
+                              ${renderStars(r.stars)}
+                              <span class="review-service">${cat}</span>
+                            </div>
+                            <div class="message-text">${text}</div>
+                          </div>
+                        </div>
+                      </article>
+                    `;
+                }).join('');
+                
+                // Remove transition classes and trigger fade in
+                setTimeout(() => {
+                    wrap.classList.remove('transitioning', 'transitioning-next');
+                }, 50);
+                
+                updateNavigationButtons();
+            }, direction !== 'none' ? 200 : 0);
+        }
+        
+        function setupReviewsPagination() {
+            const paginationEl = document.getElementById('reviewsPagination');
+            if (!paginationEl) return;
+            
+            const totalPages = Math.ceil(allReviews.length / reviewsPerPage);
+            
+            if (totalPages <= 1) {
+                paginationEl.innerHTML = '';
+                return;
+            }
+            
+            paginationEl.innerHTML = Array.from({ length: totalPages }, (_, i) => {
+                const isActive = i === currentReviewPage ? 'active' : '';
+                return `<button class="review-page-dot ${isActive}" data-page="${i}" aria-label="Go to page ${i + 1}"></button>`;
+            }).join('');
+            
+            // Add click handlers to dots
+            paginationEl.querySelectorAll('.review-page-dot').forEach(dot => {
+                dot.addEventListener('click', function() {
+                    currentReviewPage = parseInt(this.dataset.page);
+                    renderReviewsPage();
+                    updatePaginationDots();
+                });
+            });
+        }
+        
+        function updatePaginationDots() {
+            const dots = document.querySelectorAll('.review-page-dot');
+            dots.forEach((dot, i) => {
+                if (i === currentReviewPage) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        function updateNavigationButtons() {
+            const prevBtn = document.getElementById('reviewsPrev');
+            const nextBtn = document.getElementById('reviewsNext');
+            
+            if (!prevBtn || !nextBtn) return;
+            
+            const totalPages = Math.ceil(allReviews.length / reviewsPerPage);
+            
+            // Update prev button
+            if (currentReviewPage === 0) {
+                prevBtn.disabled = true;
+            } else {
+                prevBtn.disabled = false;
+            }
+            
+            // Update next button
+            if (currentReviewPage >= totalPages - 1) {
+                nextBtn.disabled = true;
+            } else {
+                nextBtn.disabled = false;
+            }
+        }
+        
+        // Setup carousel navigation
+        const prevBtn = document.getElementById('reviewsPrev');
+        const nextBtn = document.getElementById('reviewsNext');
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                if (currentReviewPage > 0) {
+                    currentReviewPage--;
+                    renderReviewsPage('prev');
+                    updatePaginationDots();
+                }
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                const totalPages = Math.ceil(allReviews.length / reviewsPerPage);
+                if (currentReviewPage < totalPages - 1) {
+                    currentReviewPage++;
+                    renderReviewsPage('next');
+                    updatePaginationDots();
+                }
+            });
+        }
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            const oldReviewsPerPage = reviewsPerPage;
+            updateReviewsPerPage();
+            
+            if (oldReviewsPerPage !== reviewsPerPage) {
+                // Recalculate current page to maintain similar position
+                const currentFirstItem = currentReviewPage * oldReviewsPerPage;
+                currentReviewPage = Math.floor(currentFirstItem / reviewsPerPage);
+                
+                renderReviewsPage();
+                setupReviewsPagination();
+            }
+        });
+
+        // Trigger load
+        fetchReviews();
+
+        // Reviews overlay: expand to full-screen on click
+        const overlay = document.getElementById('reviewOverlay');
+        const overlayCloseBtn = overlay ? overlay.querySelector('.overlay-close') : null;
+
+        function openReviewOverlayFromCard(card) {
+            if (!overlay || !card) return;
+            const av = card.querySelector('.message-avatar');
+            const author = card.querySelector('.message-author');
+            const timestamp = card.querySelector('.message-timestamp');
+            const rating = card.querySelector('.review-rating');
+            const text = card.querySelector('.message-text');
+
+            const oAvatar = overlay.querySelector('.overlay-avatar');
+            const oAuthor = overlay.querySelector('.overlay-author');
+            const oTimestamp = overlay.querySelector('.overlay-timestamp');
+            const oRating = overlay.querySelector('.overlay-rating');
+            const oText = overlay.querySelector('.overlay-text');
+
+            if (oAvatar && av) { oAvatar.src = av.getAttribute('src'); oAvatar.alt = av.getAttribute('alt') || ''; }
+            if (oAuthor && author) oAuthor.textContent = author.textContent || '';
+            if (oTimestamp && timestamp) oTimestamp.textContent = timestamp.textContent || '';
+            if (oRating && rating) oRating.innerHTML = rating.innerHTML || '';
+            if (oText && text) oText.textContent = text.textContent || '';
+
+            overlay.classList.add('open');
+            document.body.classList.add('noscroll');
+            overlay.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeReviewOverlay() {
+            if (!overlay) return;
+            overlay.classList.remove('open');
+            overlay.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('noscroll');
+        }
+
+        const reviewsListEl = document.getElementById('reviewsList');
+        if (reviewsListEl) {
+            reviewsListEl.addEventListener('click', function(e) {
+                const card = e.target.closest('.review-message');
+                if (!card) return;
+                openReviewOverlayFromCard(card);
+            });
+        }
+
+        if (overlay) {
+            overlay.addEventListener('click', function(e) {
+                if (!e.target.closest('.overlay-card')) closeReviewOverlay();
+            });
+        }
+        if (overlayCloseBtn) {
+            overlayCloseBtn.addEventListener('click', closeReviewOverlay);
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && overlay && overlay.classList.contains('open')) {
+                closeReviewOverlay();
+            }
+        });
+
+    });
+    </script>
+
+</body></html>
